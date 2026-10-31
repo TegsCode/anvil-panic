@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="ANVIL PANIC — dodge falling junk">
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="320" fill="#151020"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#241a33"/>
+
+  <!-- speed lines behind the junk -->
+  <g stroke="#ddcbb2" stroke-width="3" stroke-linecap="round" opacity="0.16">
+    <line x1="905" y1="96" x2="905" y2="150"/>
+    <line x1="952" y1="126" x2="952" y2="186"/>
+    <line x1="1032" y1="78" x2="1032" y2="132"/>
+    <line x1="1104" y1="128" x2="1104" y2="178"/>
+  </g>
+
+  <!-- falling junk -->
+  <g stroke="#151020" stroke-width="6" stroke-linejoin="round">
+    <rect x="878" y="52" width="42" height="34" rx="4" fill="#5a6180" transform="rotate(-13 899 69)"/>
+    <rect x="1004" y="22" width="48" height="30" rx="4" fill="#3d4257" transform="rotate(9 1028 37)"/>
+    <rect x="1082" y="96" width="34" height="34" rx="4" fill="#5ee0c0" transform="rotate(21 1099 113)"/>
+    <path d="M948 112 l16 26 l-32 0 z" fill="#ff6b6b"/>
+    <rect x="944" y="196" width="26" height="20" rx="3" fill="#ffd35c" transform="rotate(-8 957 206)"/>
+  </g>
+
+  <!-- the blob -->
+  <g stroke="#151020" stroke-linejoin="round">
+    <rect x="978" y="200" width="152" height="102" rx="51" fill="#f7eddc" stroke-width="8"/>
+    <rect x="1002" y="288" width="30" height="14" rx="7" fill="#f7eddc" stroke-width="7"/>
+    <rect x="1076" y="288" width="30" height="14" rx="7" fill="#f7eddc" stroke-width="7"/>
+    <circle cx="1030" cy="238" r="9" fill="#151020" stroke="none"/>
+    <circle cx="1080" cy="238" r="9" fill="#151020" stroke="none"/>
+    <circle cx="1004" cy="262" r="8" fill="#ff6b6b" stroke="none"/>
+    <circle cx="1106" cy="262" r="8" fill="#ff6b6b" stroke="none"/>
+    <path d="M1040 262 q15 13 30 0" fill="none" stroke="#151020" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- donut shield -->
+  <g transform="translate(920 236)">
+    <circle r="26" fill="none" stroke="#151020" stroke-width="20"/>
+    <circle r="26" fill="none" stroke="#ffcf4d" stroke-width="10"/>
+    <circle cx="-9" cy="-6" r="3" fill="#f7eddc"/>
+    <circle cx="4" cy="7" r="3" fill="#f7eddc"/>
+    <circle cx="9" cy="-8" r="3" fill="#f7eddc"/>
+  </g>
+
+  <!-- title -->
+  <g filter="url(#rough)">
+    <text x="68" y="150" font-family="ui-monospace, 'Cascadia Mono', Consolas, monospace"
+          font-size="104" font-weight="800" letter-spacing="2"
+          fill="#ff6b6b" transform="translate(7 9)">ANVIL PANIC</text>
+    <text x="68" y="150" font-family="ui-monospace, 'Cascadia Mono', Consolas, monospace"
+          font-size="104" font-weight="800" letter-spacing="2" fill="#f7eddc">ANVIL PANIC</text>
+  </g>
+
+  <text x="72" y="206" font-family="ui-monospace, 'Cascadia Mono', Consolas, monospace"
+        font-size="23" font-weight="700" letter-spacing="4.5" fill="#5ee0c0">DODGE FALLING JUNK</text>
+  <text x="72" y="242" font-family="ui-monospace, 'Cascadia Mono', Consolas, monospace"
+        font-size="19" font-weight="700" letter-spacing="3" fill="#ddcbb2">NO LEVELS · NO SAVES · INSTANT RETRY</text>
+</svg>

@@ -1,0 +1,15 @@
+# Keep the repo byte-stable regardless of the machine that clones it.
+* text=auto eol=lf
+
+# Windows-only scripts must stay CRLF or cmd.exe mangles them.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binaries, never touched
+*.png binary
+*.ico binary
+*.jar binary
+*.exe binary
+*.apk binary
+*.jks binary

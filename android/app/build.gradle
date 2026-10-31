@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Signing is optional: without android/keystore.properties the release build is
+// simply unsigned. `make-keystore.ps1` creates both the key and that file.
+def keystoreProps = new Properties()
+def keystoreFile = rootProject.file('keystore.properties')
+if (keystoreFile.exists()) {
+    keystoreFile.withInputStream { keystoreProps.load(it) }
+}
+
+android {
+    namespace 'com.tegscode.anvilpanic'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.tegscode.anvilpanic'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    signingConfigs {
+        if (keystoreFile.exists()) {
+            release {
+                storeFile rootProject.file(keystoreProps['storeFile'])
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            if (keystoreFile.exists()) signingConfig signingConfigs.release
+        }
+        debug {
+            applicationIdSuffix '.debug'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    // The game is one HTML file; keep it uncompressed so it loads instantly and
+    // can be memory-mapped straight out of the APK.
+    androidResources {
+        noCompress 'html'
+    }
+}
